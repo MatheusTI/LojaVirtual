@@ -1,0 +1,9 @@
+Script Banco de Dados BDLojaVirtual:
+
+CREATE TABLE produto(
+	pro_id serial not null primary key,
+	pro_nome varchar(90),
+	pro_preco numeric(10,2)
+);
+
+http://javawora.blogspot.com.br/2007/06/tutorial-parte-1.html

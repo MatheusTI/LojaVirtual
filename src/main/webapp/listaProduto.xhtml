@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>LOJA VIRTUAL</title>
+</h:head>
+	<h1>LOJA VIRTUAL - JAM TECH</h1>
+<h:body>
+
+	<!--  <h:commandButton value="VOLTAR" action="index?faces-redirect=true" immediate="true"/> -->
+	<h:commandButton value="VOLTAR" action="#{produtoCtrl.voltar}" />
+	
+	<h:dataTable value="#{produtoCtrl.produtos}" var="produto">
+		<h:column>
+			<f:facet name="header">ID</f:facet>
+			<h:outputText value="#{produto.id}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">Nome</f:facet>
+			<h:outputText value="#{produto.nome}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">Preço</f:facet>
+			<h:outputText value="#{produto.preco}" />
+		</h:column>
+
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				
+		<h:column>
+			<f:facet name="header">Ações</f:facet>
+			<h:form>
+				<h:commandButton value="Editar"
+					action="#{produtoCtrl.actionAlterar(produto)}">
+					<f:param name="id" value="#{produto.id}" />
+				</h:commandButton>
+
+				<h:commandButton value="Excluir"
+					action="#{produtoCtrl.actionExcluir}">
+					<f:param name="id" value="#{produto.id}" />
+				</h:commandButton>
+			</h:form>
+		</h:column>
+		
+	</h:dataTable>
+
+	</h:body>
+	<p style="background-color: black; color: white;">Copyright&copy;2018 Matheus dos Santos - All Rights Reverved</p>
+</html>

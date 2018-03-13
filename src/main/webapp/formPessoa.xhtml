@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Loja Web</title>
+</h:head>
+<h:body>
+<center>
+	<h1>Loja Web</h1>
+<h:graphicImage library="imagens" name="cad.png" />
+	<h2>Formulario de Pessoas</h2>
+	<h:form>
+		<h:messages style="color:red;margin:8px;"/>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Nome: " for="nome"/>
+			<h:inputText value="#{pessoaCtrl.pessoa.pes_nome}" id="nome"/>
+
+			<h:outputLabel value="CPF: " for="cpf"/>
+			<h:inputText value="#{pessoaCtrl.pessoa.cpf}" id="cpf"/>
+
+			<h:outputLabel value="RG: " for="rg"/>
+			<h:inputText value="#{pessoaCtrl.pessoa.rg}" id="rg"/>
+
+			<h:outputLabel value="Data de Nascimento: " for="dataNasc"/>
+			<h:inputText value="#{pessoaCtrl.pessoa.data_nasc}" id="dataNasc" >
+			<f:convertDateTime dateStyle="default"  pattern="dd/MM/yyyy"/>
+			</h:inputText>
+
+			<h:outputLabel value="Rua: " for="rua"/>
+			<h:inputText value="#{pessoaCtrl.pessoa.pes_rua}" id="rua"/>
+
+			<h:outputLabel value="Bairro: " for="bairro"/>
+			<h:inputText value="#{pessoaCtrl.pessoa.pes_bairro}" id="bairro"/>		
+		
+			<h:outputLabel value="Cidade: " for="city"/>
+			<h:inputText value="#{pessoaCtrl.pessoa.pes_cidade}" id="city"/>
+
+			<h:outputLabel value="CEP: " for="cep"/>
+			<h:inputText value="#{pessoaCtrl.pessoa.pes_cep}" id="cep"/>
+
+			<h:outputLabel value="E-mail: " for="email"/>
+			<h:inputText value="#{pessoaCtrl.pessoa.pes_email}" id="email"/>
+		
+			<h:outputLabel value="Senha: " for="senha"/>
+			<h:inputSecret value="#{pessoaCtrl.pessoa.pes_senha}" id="senha"/>
+		
+			<h:outputLabel value="Tipo: " for="tipo"/>
+			<h:selectOneMenu id="tipo" value="#{pessoaCtrl.pessoa.pes_tipo}">
+				<f:selectItem itemLabel="Administrador" itemValue="Administrador"/>
+				<f:selectItem itemLabel="Cliente" itemValue="Cliente"/>
+				
+			</h:selectOneMenu>
+	
+			<h:outputLabel value="Estado: " for="ufs"/>
+			<h:selectOneMenu id="ufs" 
+			value="#{pessoaCtrl.pessoa.pes_uf}">
+				<f:selectItem itemLabel="AC" itemValue="AC"/>
+				<f:selectItem itemLabel="AL" itemValue="AL" />
+				<f:selectItem itemLabel="AP" itemValue="AP" />
+				<f:selectItem itemLabel="AM" itemValue="AM" />
+				<f:selectItem itemLabel="BA" itemValue="BA" />
+				<f:selectItem itemLabel="CE" itemValue="CE" />
+				<f:selectItem itemLabel="DF" itemValue="DF" />
+				<f:selectItem itemLabel="ES" itemValue="ES" />
+				<f:selectItem itemLabel="GO" itemValue="GO" />
+				<f:selectItem itemLabel="MA" itemValue="MA" />
+				<f:selectItem itemLabel="MT" itemValue="MT" />
+				<f:selectItem itemLabel="MS" itemValue="MS" />
+				<f:selectItem itemLabel="MG" itemValue="MG" />
+				<f:selectItem itemLabel="PA" itemValue="PA" />
+				<f:selectItem itemLabel="PB" itemValue="PB" />
+				<f:selectItem itemLabel="PR" itemValue="PR" />
+				<f:selectItem itemLabel="PE" itemValue="PE" />
+				<f:selectItem itemLabel="PI" itemValue="PI" />
+				<f:selectItem itemLabel="RJ" itemValue="RJ" />
+				<f:selectItem itemLabel="RN" itemValue="RN" />
+				<f:selectItem itemLabel="RS" itemValue="RS" />
+				<f:selectItem itemLabel="RO" itemValue="RO" />
+				<f:selectItem itemLabel="RR" itemValue="RR" />
+				<f:selectItem itemLabel="SC" itemValue="SC" />
+				<f:selectItem itemLabel="SP" itemValue="SP" />
+				<f:selectItem itemLabel="SE" itemValue="SE" />
+				<f:selectItem itemLabel="TO" itemValue="TO" />
+													
+			</h:selectOneMenu>
+
+			<h:commandButton value="CADASTRAR" action="#{pessoaCtrl.actionGravar}"/>
+			<h:commandButton value="Novo Usuário:" action="#{pessoaCtrl.limpar}"/>
+		</h:panelGrid>
+	</h:form>
+
+
+</center>	
+</h:body>
+<p style="background-color: black; color: white;">Copyright&copy;2018 Matheus dos Santos - All Rights Reverved</p>
+</html>
