@@ -6,4 +6,48 @@ CREATE TABLE produto(
 	pro_preco numeric(10,2)
 );
 
+
+
+
+CREATE TABLE forma_pgto(
+	fpg_id serial primary key,
+	fpg_descricao varchar (20) not null,
+	fpg_num_max_parc integer not null,
+	fpg_num_padrao_parc integer not null,
+	fpg_intervalo_dias integer not null,
+	fpg_percentual_acres numeric(10,2)
+);
+
+
+CREATE TABLE public.pessoa
+(
+    pes_id serial primary key,
+    pes_nome character varying(60),
+    pes_cpf character(14),
+    pes_rg character varying(20),
+    pes_data_nasc date,
+    pes_rua character varying(60),
+    pes_bairro character varying(30),
+    pes_cidade character varying(30),
+    pes_uf character(2),
+    pes_cep integer,
+    pes_email character varying(40),
+    pes_senha character varying(32),
+    pes_tipo character varying(30),
+ );
+
+CREATE TABLE public.fone
+(
+    fon_id integer NOT NULL DEFAULT nextval('fone_fon_id_seq'::regclass),
+    pes_id integer,
+    fon_numero character varying(20) COLLATE pg_catalog."default",
+    fon_descricao character varying(30) COLLATE pg_catalog."default",
+    CONSTRAINT fone_pkey PRIMARY KEY (fon_id),
+    CONSTRAINT rel_pessoa_fone FOREIGN KEY (pes_id)
+        REFERENCES public.pessoa (pes_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+
 http://javawora.blogspot.com.br/2007/06/tutorial-parte-1.html

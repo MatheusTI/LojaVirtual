@@ -26,6 +26,8 @@
 		<!-- Mapeamento das Classes -->
 		<mapping class="beans.Produto"/>
 		<mapping class="beans.Pessoa"/>
+		<mapping class="beans.Fone"/>
+		<mapping class="beans.FormaPgto"/>
 		
 	</session-factory>
 

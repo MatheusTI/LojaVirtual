@@ -8,7 +8,7 @@
 
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>LOJA VIRTUAL</title>s
+	<title>LOJA VIRTUAL</title>
 </h:head>
 
 <h:body>
@@ -19,89 +19,100 @@
 			<br /> <br />
 			<h2>Produtos</h2>
 			<h:panelGrid columns="2">
-			<h:commandButton value="LISTAR PRODUTOS"
-				action="listaProduto?faces-redirect=true" />
-			<h:commandButton value="CADASTRAR PRODUTO"
-				action="formProduto?faces-redirect=true" />
+				<h:commandButton value="LISTAR PRODUTOS"
+					action="listaProduto?faces-redirect=true" />
+				<h:commandButton value="CADASTRAR PRODUTO"
+					action="formProduto?faces-redirect=true" />
 			</h:panelGrid>
+			<h:commandButton value="FORMAS DE PAGAMENTO" action="formPagamento?faces-redirect=true" />
 		</center>
 		<br />
 		<center>
-		<h2>Pessoa</h2>
+			<h2>Pessoa</h2>
 			<h:panelGrid columns="2">
-			<h:commandButton value="LISTAR PESSOAS"
-				action="listaPessoa?faces-redirect=true" />
+				<h:commandButton value="LISTAR PESSOAS"
+					action="listaPessoa?faces-redirect=true" />
 
-			<h:commandButton value="CADASTRAR PESSOA"
-				action="#{pessoaCtrl.actionInserir}" />
-			</h:panelGrid>	
+				<h:commandButton value="CADASTRAR PESSOA"
+					action="#{pessoaCtrl.actionInserir}" />
+			</h:panelGrid>
 		</center>
 		<br />
 		<br />
-		
+
 		<center>
 			<h:panelGrid columns="2">
-			<h3>Busca por Produto:</h3>
-			<h:outputLabel for="produto" />
-			<h:inputText value="#{produtoCtrl.pesquisa}" id="produto" />
-			<h:commandButton value="PESQUISA PRODUTO"
-				action="#{produtoCtrl.buscarPorNome}" />
-		
-			
-			<h3>Busca por Pessoa:</h3>
-			<h:outputLabel for="pessoa"/>
-			<h:inputText value="#{pessoaCtrl.pesquisa}" id="pessoa" />
-			<h:commandButton value="PESQUISA PESSOA" action="#{pessoaCtrl.buscarPorNome}"/>
-			</h:panelGrid>	
-			<br/>
-		<h:panelGrid columns="2" cellspacing="3">	
-			<h:panelGrid columns="3">
-			<h:dataTable var="produto" value="#{produtoCtrl.lista}">
-				<h:column>
-					<f:facet name="header">ID</f:facet>
-					<h:outputText value="#{produto.id}" />
-				</h:column>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<h:column>
-					<f:facet name="header">NOME</f:facet>
-					<h:outputText value="#{produto.nome}" />
-				</h:column>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<h:column>
-					<f:facet name="header">PREÇO</f:facet>
-					<h:outputText value="R$ #{produto.preco}" />
-				</h:column>	
-			</h:dataTable>
+				<h3>Busca por Produto:</h3>
+				<h:outputLabel for="produto" />
+				<h:inputText value="#{produtoCtrl.pesquisa}" id="produto" />
+				<h:commandButton value="PESQUISA PRODUTO"
+					action="#{produtoCtrl.buscarPorNome}" />
+
+
+				<h3>Busca por Pessoa:</h3>
+				<h:outputLabel for="pessoa" />
+				<h:inputText value="#{pessoaCtrl.pesquisa}" id="pessoa" />
+				<h:commandButton value="PESQUISA PESSOA"
+					action="#{pessoaCtrl.buscarPorNome}" />
 			</h:panelGrid>
-			
-			<h:panelGrid columns="3">
-			<h:dataTable var="pessoa" value="#{pessoaCtrl.lista}">
-				<h:column>
-					<f:facet name="header">ID</f:facet>
-					<h:outputText value="#{pessoa.pes_id}" />
-				</h:column>
+			<br />
+			<h:panelGrid columns="2" cellspacing="3">
+				<h:panelGrid columns="3">
+					<h:dataTable var="produto" value="#{produtoCtrl.lista}">
+						<h:column>
+							<f:facet name="header">ID</f:facet>
+							<h:outputText value="#{produto.id}" />
+						</h:column>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<h:column>
-					<f:facet name="header">NOME</f:facet>
-					<h:outputText value="#{pessoa.pes_nome}" />
-				</h:column>
+							<f:facet name="header">NOME</f:facet>
+							<h:outputText value="#{produto.nome}" />
+						</h:column>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<h:column>
-					<f:facet name="header">TIPO</f:facet>
-					<h:outputText value="#{pessoa.pes_tipo}" />
-				</h:column>	
-			</h:dataTable>
+							<f:facet name="header">PREÇO</f:facet>
+							<h:outputText value="R$ #{produto.preco}" />
+						</h:column>
+					</h:dataTable>
+				</h:panelGrid>
+
+				<h:panelGrid columns="3">
+					<h:dataTable var="pessoa" value="#{pessoaCtrl.lista}">
+						<h:column>
+							<f:facet name="header">ID</f:facet>
+							<h:outputText value="#{pessoa.pes_id}" />
+						</h:column>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<h:column>
+							<f:facet name="header">NOME</f:facet>
+							<h:outputText value="#{pessoa.pes_nome}" />
+						</h:column>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<h:column>
+							<f:facet name="header">TIPO</f:facet>
+							<h:outputText value="#{pessoa.pes_tipo}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">Ações</f:facet>
+							<h:commandButton value="DETALHES"
+								action="#{pessoaCtrl.buscarPorNomeDetalhes(pessoa)}">
+							</h:commandButton>
+						</h:column>
+
+					</h:dataTable>
+				</h:panelGrid>
+
 			</h:panelGrid>
-			
-			
-		</h:panelGrid>
 		</center>
-		
-		<br/><br/>
+
+		<br />
+		<br />
 	</h:form>
 </h:body>
 
 
-<p style="background-color: black; color: white;">Copyright&copy;2018 Matheus dos Santos - All Rights Reverved</p>
+<p style="background-color: black; color: white;">Copyright&copy;2018
+	Matheus dos Santos - All Rights Reverved</p>
 
 </html>

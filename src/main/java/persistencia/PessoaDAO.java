@@ -11,6 +11,8 @@ import javax.faces.component.FacesComponent;
 
 
 import org.hibernate.*;
+
+import beans.Fone;
 import beans.Pessoa;
 
 
@@ -21,7 +23,7 @@ public class PessoaDAO implements Serializable {
 
 	public static void inserir(Pessoa pessoa) {
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
-		Transaction t = sessao.beginTransaction();
+		Transaction   t = sessao.beginTransaction();
 		sessao.save(pessoa);
 		t.commit();
 		sessao.close();
@@ -42,7 +44,6 @@ public class PessoaDAO implements Serializable {
 		t.commit();
 		sessao.close();
 	}
-
 	
 	public List<Pessoa> buscarTodos() {
 		Session sessao = HibernateUtil.getSessionFactory().openSession();

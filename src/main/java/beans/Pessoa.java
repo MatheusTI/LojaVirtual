@@ -1,7 +1,10 @@
 package beans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -132,6 +135,17 @@ public class Pessoa implements Serializable{
 	}
 	public void setPes_cep(int pes_cep) {
 		this.pes_cep = pes_cep;
+	}
+	
+	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<Fone> fones = new ArrayList<Fone>();
+	
+	public List<Fone> getFones(){
+		return fones;
+	}
+	
+	public void setFones(List<Fone> fones) {
+		this.fones = fones;
 	}
 	
 	@Override

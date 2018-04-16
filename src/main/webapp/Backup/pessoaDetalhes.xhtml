@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Loja Web</title>
+</h:head>
+<h:body>
+<center>
+	<h1>Loja Web</h1>
+<h:graphicImage library="imagens" name="cad.png" />
+	<h2>Lista de Pessoas</h2>
+	<h:form>
+	
+			<h:outputLabel value="ID: #{pessoaCtrl.pessoa.pes_id}" />
+			<br/>
+			<h:outputLabel value="CPF: #{pessoaCtrl.pessoa.cpf}"/>
+			<br/>
+			<h:outputLabel value = "NOME: #{pessoaCtrl.pessoa.pes_nome}"/>
+			<br/>
+			<h:outputLabel value="RG: #{pessoaCtrl.pessoa.rg}"/>
+			<br/>
+			<h:outputLabel value="Data de Nascimento: #{pessoaCtrl.pessoa.data_nasc}">
+				<f:convertDateTime dateStyle="default"  pattern="dd/MM/yyyy"/>
+			</h:outputLabel>
+			<br/>
+			<h:outputLabel value="Rua: #{pessoaCtrl.pessoa.pes_rua}"/>
+			<br/>
+			<h:outputLabel value="Bairro: #{pessoaCtrl.pessoa.pes_bairro}"/>
+			<br/>
+			<h:outputLabel value="Cidade: #{pessoaCtrl.pessoa.pes_cidade}"/>
+			<br/>
+			<h:outputLabel value="CEP: #{pessoaCtrl.pessoa.pes_cep}"/>
+			<br/>
+			<h:outputLabel value="E-mail: #{pessoaCtrl.pessoa.pes_email}"/>
+			<br />
+			<h:outputLabel value="Tipo: #{pessoaCtrl.pessoa.pes_tipo}" />
+			
+					
+				
+		</h:form>
+
+</center>	
+</h:body>
+<p style="background-color: black; color: white;">Copyright&copy;2018 Matheus dos Santos - All Rights Reverved</p>
+</html>

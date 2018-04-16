@@ -41,11 +41,6 @@
 		</h:column>
 
 		<h:column>
-			<f:facet name="header">Email</f:facet>
-			<h:outputText value="#{pessoa.pes_email}" />
-		</h:column>
-
-		<h:column>
 			<f:facet name="header">Usuario_Tipo</f:facet>
 			<h:outputText value="#{pessoa.pes_tipo}" />
 		</h:column>
@@ -61,18 +56,17 @@
 		</h:column>
 		
 		<h:column>
-			<f:facet name="header">Bairro</f:facet>
-			<h:outputText value="#{pessoa.pes_bairro}" />
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">CEP</f:facet>
-			<h:outputText value="#{pessoa.pes_cep}" />
-		</h:column>
-
-		<h:column>
-			<f:facet name="header">Rua</f:facet>
-			<h:outputText value="#{pessoa.pes_rua}" />
+		<f:facet name="header">Fone</f:facet>
+		<h:dataTable value="#{pessoa.fones}" var="fones">
+			<h:column>
+				<f:facet name="header">Numero</f:facet>
+				<h:outputText value="#{fones.numero}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Descrição</f:facet>
+				<h:outputText value="#{fones.descricao}" />
+			</h:column>
+		</h:dataTable>
 		</h:column>
 	
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -87,8 +81,7 @@
 				</h:commandButton>
 
 				<h:commandButton value="Excluir"
-					action="#{pessoaCtrl.actionExcluir}">
-					<f:param name="pes_id" value="#{pessoa.pes_id}" />
+					action="#{pessoaCtrl.actionExcluir(pessoa)}">
 				</h:commandButton>
 			</h:form>
 		</h:column>
